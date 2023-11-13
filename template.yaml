@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  HomeFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: makefile
+    Properties:
+      CodeUri: ./
+      Handler: io.micronaut.function.aws.proxy.MicronautLambdaHandler
+      Runtime: provided.al2
+      Architectures:
+        - x86_64
+      MemorySize: 512
